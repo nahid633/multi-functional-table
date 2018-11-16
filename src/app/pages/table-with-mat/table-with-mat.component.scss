@@ -1,0 +1,40 @@
+.container{
+  display: flex;
+  justify-content: space-evenly;
+}
+table {
+  width: 100%;
+}
+.mat-form-field.width {
+  width: 75%;
+
+}
+.mat-form-field {
+  font-size: 14px;
+
+}
+
+td, th {
+  width: 25%;
+  font-size: 1.2rem;
+}
+.filter-input{
+  display: block;
+  width: 95%;
+  height: calc(2.25rem + 2px);
+  padding-top: .375rem;
+  padding-bottom: .375rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+}
+::ng-deep.mat-sort-header-container {
+  margin-top: 10px;
+}
+.mat-elevation-z8{
+ margin: 2rem;
+}

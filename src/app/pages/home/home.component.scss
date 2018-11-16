@@ -1,0 +1,111 @@
+html{
+  font-family: 'open sans';
+}
+h1{
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.fancy-cards{
+  text-align: center;
+  margin: 80px auto;
+  display: flex;
+  justify-content: space-evenly;
+}
+.fancy-cards .fancy-card{
+  display: inline-block;
+  position: relative;
+  top: 40px;
+  left: 20px;
+  box-sizing: border-box;
+}
+
+.fancy-card .top,
+.fancy-card .top1,
+.fancy-card .middle,
+.fancy-card .bottom{
+  position: relative;
+  border-radius: 3px;
+  overflow: hidden;
+  width: 350px;
+  height: 350px;
+  transition: transform 300ms linear-out;
+}
+.fancy-card .top{
+  z-index: 3;
+  transform: scale(1.0);
+  transition: transform 300ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  background-image: url('../../../assets/primeng-logo.png');
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0px 1px 3px rgba(25,25,25,0.30);
+}
+.fancy-card .top1{
+  z-index: 3;
+  transform: scale(1.0);
+  transition: transform 300ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  background-image: url('../../../assets/material-design-logo.png');
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0px 1px 3px rgba(25,25,25,0.30);
+}
+.fancy-card .middle{
+  position: absolute;
+  background: #aaa;
+  top: 0px;
+  z-index: 2;
+  transform: rotate(0deg);
+  transition: transform 250ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+.fancy-card .bottom{
+  position: absolute;
+  background: #ccc;
+  top: 0px;
+  z-index: 1;
+  transform: rotate(0deg);
+  transition: transform 250ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.fancy-card .caption{
+  overflow: hidden;
+  background: rgba(255,255,255,0.75);
+  padding: 15px 10px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+}
+.fancy-card .caption .title{
+  color: #222;
+  margin: 0px 0px 15px 0px;
+  font-size: 1.4rem;
+}
+.fancy-card .caption .button{
+  display: inline-block;
+  color: #333;
+  text-decoration: none;
+  border: solid 1px #555;
+  padding: 7px 13px;
+  background-color: transparent;
+  transition: all 300ms ease-in;
+}
+
+
+/*hovering*/
+.fancy-card:hover .top{
+  transform: scale(1.05);
+}
+.fancy-card:hover .middle{
+  transform: rotate(-7deg);
+  box-shadow: 1px 1px 2px rgba(74, 74, 74, 0.35);
+}
+.fancy-card:hover .bottom{
+  transform: rotate(7deg);
+  box-shadow: 1px 1px 2px rgba(113, 113, 113, 0.35);
+}
+
+.fancy-card:hover .button{
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  border: 0px;
+}

@@ -1,0 +1,34 @@
+<h3 style="text-align: center">Primeng Design</h3>
+<p-table #dt [columns]="selectedColumns" [value]="data" [paginator]="true" [rows]="5">
+  <ng-template pTemplate="caption">
+    <div style="display: flex;justify-content:space-between">
+      <div>
+        <p-multiSelect [options]="cols" [(ngModel)]="selectedColumns" optionLabel="header"
+                       selectedItemsLabel="{0} columns selected" [style]="{minWidth: '200px'}" defaultLabel="Choose Columns"></p-multiSelect>
+      </div>
+      <div >
+        <i class="fa fa-search" style="margin:0px 0px 0 0"></i>
+        <input type="text" pInputText size="50" placeholder="Global Search" (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+      </div>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+        {{col.header}}
+        <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order" ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+
+      </th></tr>
+    <tr>
+      <th *ngFor="let col of columns" [ngSwitch]="col.field">
+        <input  pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)"></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
+    <tr>
+      <td *ngFor="let col of columns">
+        {{rowData[col.field]}}
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
