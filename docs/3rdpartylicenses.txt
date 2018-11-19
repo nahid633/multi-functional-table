@@ -448,3 +448,7 @@ THE SOFTWARE.
 @angular/material/button
 
 @angular/material/paginator
+
+@angular/material/snack-bar
+
+@angular/material/dialog

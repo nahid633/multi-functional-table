@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild} from '@angular/core';
-import {MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import {MatDialog, MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {FormControl} from '@angular/forms';
 import {Post} from '../../entities/post';
 import {AppService} from '../../services/app/app.service';
+import {AddPostComponent} from './popups/add-post/add-post.component';
 
 @Component({
   selector: 'app-table-with-mat',
@@ -18,7 +19,7 @@ export class TableWithMatComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private appService: AppService) {
+  constructor(private appService: AppService, public dialog: MatDialog) {
 
   }
 
@@ -58,5 +59,13 @@ export class TableWithMatComponent implements OnInit {
 
   onSelect() {
     this.displayedColumns = this.columns.value;
+  }
+  onAdd(){
+    const dialog = this.dialog.open(AddPostComponent);
+    dialog.afterClosed().subscribe(response => {
+      if (response === 'ok') {
+        this.ngOnInit();
+      }
+    });
   }
 }

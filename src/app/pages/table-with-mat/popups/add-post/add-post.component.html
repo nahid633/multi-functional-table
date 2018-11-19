@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>Add Post</h1>
+<div mat-dialog-content>
+<form class="form-container" [formGroup]="postForm" novalidate>
+  <mat-form-field>
+    <input matInput placeholder="UserId" formControlName="userId">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Id" formControlName="id">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Title" formControlName="title">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Body" formControlName="body">
+  </mat-form-field>
+</form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button  color="primary" (click)="onCancel()">Cancel</button>
+  <button mat-button  color="primary" [disabled]="postForm.invalid" (click)="onSave()" >Save</button>
+</div>

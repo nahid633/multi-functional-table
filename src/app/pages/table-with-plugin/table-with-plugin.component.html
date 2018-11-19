@@ -31,4 +31,54 @@
       </td>
     </tr>
   </ng-template>
+
+  <ng-template pTemplate="summary" let-rowData>
+    <div style="text-align:left">
+      <button type="button" pButton icon="fa fa-plus" (click)="showDialogToAdd()" label="Add"></button>
+    </div>
+  </ng-template>
 </p-table>
+
+<p-dialog header="Post Details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" [width]="400">
+  <h2 *ngIf="error">ERROR: {{error}}</h2>
+
+  <div class="ui-g ui-fluid" *ngIf="post">
+    <div class="ui-g-12">
+      <div class="ui-g-4">
+        <label for="userId">UserId</label>
+      </div>
+      <div class="ui-g-8">
+        <input pInputText id="userId" [(ngModel)]="post.userId" />
+      </div>
+    </div>
+    <div class="ui-g-12">
+      <div class="ui-g-4">
+        <label for="id">Id</label>
+      </div>
+      <div class="ui-g-8">
+        <input pInputText id="id" [(ngModel)]="post.id" />
+      </div>
+    </div>
+    <div class="ui-g-12">
+      <div class="ui-g-4">
+        <label for="title">Title</label>
+      </div>
+      <div class="ui-g-8">
+        <input pInputText id="title" [(ngModel)]="post.title" />
+      </div>
+    </div>
+    <div class="ui-g-12">
+      <div class="ui-g-4">
+        <label for="body">Body</label>
+      </div>
+      <div class="ui-g-8">
+        <input pInputText id="body" [(ngModel)]="post.body" />
+      </div>
+    </div>
+  </div>
+  <p-footer>
+    <div class="ui-dialog-buttonpane ui-helper-clearfix">
+      <button type="button" pButton icon="fa fa-check" (click)="save()" label="Save"></button>
+    </div>
+  </p-footer>
+</p-dialog>

@@ -4,7 +4,7 @@ import { TableWithPluginRoutingModule } from './table-with-plugin-routing.module
 import { TableWithPluginComponent } from '../table-with-plugin.component';
 import {SharedModule} from '../../../shared/shared.module';
 import {TableModule} from 'primeng/table';
-import {ButtonModule, CardModule, InputTextModule, MultiSelectModule} from 'primeng/primeng';
+import {ButtonModule, CardModule, DialogModule, InputTextModule, MultiSelectModule} from 'primeng/primeng';
 
 @NgModule({
   declarations: [TableWithPluginComponent],
@@ -15,7 +15,8 @@ import {ButtonModule, CardModule, InputTextModule, MultiSelectModule} from 'prim
     MultiSelectModule,
     InputTextModule,
     CardModule,
-    ButtonModule
+    ButtonModule,
+    DialogModule
   ]
 })
 export class TableWithPluginModule { }

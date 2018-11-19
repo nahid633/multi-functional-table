@@ -11,6 +11,10 @@ export class TableWithPluginComponent implements OnInit {
   selectedColumns: any[];
   cols: any[];
   data: Post[];
+  post: Post;
+  newPost: boolean;
+  displayDialog: boolean;
+  error;
   constructor(private appService: AppService) {
   }
 
@@ -24,5 +28,26 @@ export class TableWithPluginComponent implements OnInit {
     ];
 
     this.selectedColumns = this.cols;
+  }
+  showDialogToAdd() {
+    this.newPost = true;
+    this.post = {userId: null, id: null, title: null, body: null};
+    this.displayDialog = true;
+  }
+
+  save() {
+    const posts = [...this.data];
+    if (this.newPost) {
+
+      this.appService.addPost(this.post).subscribe((res) => {
+        posts.push(this.post);
+        this.data = posts;
+        this.post = null;
+        this.displayDialog = false;
+        this.error = null;
+      }, error => {
+        this.error = error.message;
+      });
+    }
   }
 }
